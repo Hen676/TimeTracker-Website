@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>&#60;Time Tracker /&#62;</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="shortcut icon" type="image/png" href="Data/favicon676.png">
+        <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    </head>
+    <body>
+        <div class="main">
+            <header>
+                <form id="createTimeTask">
+                    <input placeholder="Title" type="text" id="taskTitle" class="input"/>
+                    <input placeholder="Tasks" type="number" id="tasks" class="input"/>
+                    
+                    <input type="button" value="Start" id="stopwatch"/>
+                    <p id="totalTime">0h 0m 0s</p>
+                    <p id="totalTasks">0</p>
+
+                    <input type="submit" value="Submit"/>
+                </form>
+            </header>
+            <section id="taskList">
+                <!--
+                    <div class="task">
+                        <p>${i.title}</p>
+                        <p>Date: ${i.date}</p>
+                        <p>Time taken: ${i.time}</p>
+                        <p>Tasks: ${i.tasks}</p>
+                        <p>Time taken per task: ${i.time / i.tasks}</p>
+                    </div>
+                -->
+            </section>
+        </div>
+        <script src='js/timeTask.js'></script>
+        <script src='js/main.js'></script>
+    </body>
+</html>
