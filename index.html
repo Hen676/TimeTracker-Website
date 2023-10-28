@@ -7,29 +7,91 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="shortcut icon" type="image/png" href="Data/favicon676.png">
         <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+        <script src="https://kit.fontawesome.com/e09760bf9f.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body id="body">
         <div class="main">
             <header>
+                <div class="settings">
+                    <ul class="iconList">
+                        <li class="tooltip">
+                            <a class="iconSimple" id="darkMode">
+                                <i class="fa-solid fa-moon" id="darkModeIcon"></i>
+                            </a>
+                        </li>
+                        <!--
+                        <li class="tooltip">
+                            <a class="iconSimple" id="settings">
+                                <i class="fa-solid fa-gear"></i>
+                            </a>
+                        </li>
+                        -->
+                    </ul>
+                </div>
                 <form id="createTimeTask">
                     <input placeholder="Title" type="text" id="taskTitle" class="input"/>
-                    <input placeholder="Tasks" type="number" id="tasks" class="input"/>
+                    <input placeholder="Tasks" type="number" id="tasks" class="input" min="0"/>
                     
-                    <input type="button" value="Start" id="stopwatch"/>
-                    <p id="totalTime">0h 0m 0s</p>
-                    <p id="totalTasks">0</p>
+                    <p id="stopWatchTime">00:00:00</p>
 
-                    <input type="submit" value="Submit"/>
+                    <ul class="iconList">
+                        <li class="tooltip">
+                            <a class="iconSimple" id="start">
+                                <i class="fa-solid fa-play"></i>
+                            </a>
+                            <span class="tooltipText">Start</span>
+                        </li>
+                        <li class="tooltip">
+                            <a class="iconSimple" id="pause">
+                                <i class="fa-solid fa-pause"></i>
+                            </a>
+                            <span class="tooltipText">Pause</span>
+                        </li>
+                        <li class="tooltip">
+                            <a class="iconSimple" id="restart">
+                                <i class="fa-solid fa-arrow-rotate-left"></i>
+                            </a>
+                            <span class="tooltipText">Restart</span>
+                        </li>
+                        <li class="tooltip">
+                            <a class="iconSimple" id="submit">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <span class="tooltipText">Submit</span>
+                        </li>
+                    </ul>
                 </form>
             </header>
+            <article>
+                <div>
+                    <p>Total time today:</p>
+                    <p id="totalTime">00:00:00</p>
+                </div>
+                <div>
+                    <p>Total tasks today:</p>
+                    <p id="totalTasks">0</p>
+                </div>
+            </article>
             <section id="taskList">
                 <!--
-                    <div class="task">
-                        <p>${i.title}</p>
-                        <p>Date: ${i.date}</p>
-                        <p>Time taken: ${i.time}</p>
-                        <p>Tasks: ${i.tasks}</p>
-                        <p>Time taken per task: ${i.time / i.tasks}</p>
+                    <div class="task" data-index="${index}">
+                        <div class="top">
+                            <h1>${i.title}</h1>
+                            <p>${i.date}</p>
+                        </div>
+                        <ul class="iconList">
+                            <li class="tooltip">
+                                <a class="iconSimple">
+                                    <i class="fa-solid fa-xmark fa-xl"></i>
+                                </a>
+                                <span class="tooltipText">Delete</span>
+                            </li>
+                        </ul>
+                        <div class="bottom">
+                            <p>Time: ${formatTime(i.time)}</p>
+                            <p>Tasks: ${i.tasks}</p>
+                            <p>Time per task: ${formatTime(i.time / i.tasks)}</p>
+                        </div>
                     </div>
                 -->
             </section>
