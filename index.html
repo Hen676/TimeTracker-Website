@@ -7,6 +7,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="shortcut icon" type="image/png" href="Data/LogoTT.png">
         <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='css/dark.css'>
         <script src="https://kit.fontawesome.com/e09760bf9f.js" crossorigin="anonymous"></script>
     </head>
     <body id="body">
@@ -30,8 +31,15 @@
                 </div>
                 <form id="createTimeTask">
                     <input placeholder="Title" type="text" id="taskTitle" class="input"/>
-                    <input placeholder="Tasks" type="number" id="tasks" class="input" min="0"/>
-                    
+                    <div class="numberInputs">
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input placeholder="Tasks" type="number" id="tasks" class="input" min="1" value="1"/>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
                     <p id="stopWatchTime">00:00:00</p>
 
                     <ul class="iconList">
@@ -96,6 +104,7 @@
                 -->
             </section>
         </div>
+        <script src='js/darkMode.js'></script>
         <script src='js/timeTask.js'></script>
         <script src='js/main.js'></script>
     </body>

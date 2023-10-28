@@ -13,12 +13,7 @@ var worker;
 let taskStorage = [];
 
 // HTML Elements
-let body = document.getElementById("body");
-
 let taskFormForm = document.getElementById("createTimeTask");
-
-let darkMode = document.getElementById("darkMode");
-let darkModeIcon = document.getElementById("darkModeIcon");
 
 let startA = document.getElementById("start");
 let pauseA = document.getElementById("pause");
@@ -56,32 +51,6 @@ restartA.addEventListener("click", (e) => {
     updateTime();
     clearInterval(worker);
 });
-
-darkMode.addEventListener("click", (e) => {
-    body.classList.toggle("dark");
-
-    var darkModeBool = body.classList.contains("dark");
-    toggleDarkModeIcon(darkModeBool);
-
-    if (isStorageAvailable)
-        localStorage.setItem("dark", darkModeBool);
-});
-
-
-
-// Dark mode
-var isStorageAvailable = typeof Storage !== "undefined";
-if (isStorageAvailable) {
-    if (localStorage.getItem("dark") === "true") {
-        body.classList.add("dark");
-        toggleDarkModeIcon();
-    }
-}
-function toggleDarkModeIcon() {
-    darkModeIcon.classList.toggle("fa-moon");
-    darkModeIcon.classList.toggle("fa-sun");
-}
-
 
 function updateTime() {
     if(stopwatchRunning)

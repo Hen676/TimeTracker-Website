@@ -1,9 +1,4 @@
 :root {
-    --color-dark-background: #161616;
-    --color-dark-foreground: #222222;
-    --color-dark-foreground-opa: #2425254d;
-    --color-dark-text-highlight: #ebeae9;
-    --color-dark-text: #d6d5d5; 
     --color-light-background: #ffffff;
     --color-light-foreground: #f1f1f1;
     --color-light-foreground-opa: #f1f1f14d;
@@ -20,48 +15,22 @@
         var(--color-highlight-3) 100%
     );  
     --shadow-light-main: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --shadow-light-main-drop: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.8));
     --shadow-light-hover: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 8px 30px 0 rgba(0, 0, 0, 0.19);
+    --shadow-light-hover-drop: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
 }
 
-/* Dark mode */
-.dark h1 {
-    color: var(--color-dark-text-highlight);
-}
-.dark #stopWatchTime{
-    color: var(--color-highlight-3);
-    background-color: var(--color-dark-background);
-}
-.dark p {
-    color: var(--color-dark-text);
-}
-.dark {
-    background-color: var(--color-dark-background);
-}
-.dark input {
-    color: var(--color-highlight-3);
-    background-color: var(--color-dark-background);
-    border-color: var(--color-highlight-3);
-}
-.dark .task {
-    background-color: var(--color-dark-foreground);
+/* Animation */
+@keyframes bg-animation {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
 }
 
-/* Dark mode - Icon */
-.dark .iconSimple {
-    background-color: var(--color-dark-background);
-    color: var(--color-highlight-3);
-}
-
-.dark .iconSimple:focus,
-.dark .iconSimple:hover {
-    background-color: var(--color-highlight-3);
-    color: var(--color-dark-background);
-}
-
-.dark .tooltipText {
-    background-color: var(--color-highlight-3);
-    color: var(--color-dark-foreground);
-}
+/* WEB KIT */
 
 /* Scroll bar */
 ::-webkit-scrollbar {
@@ -73,6 +42,17 @@
 }
 ::-webkit-scrollbar-thumb {
     background: var(--color-gray-opa);
+}
+
+/* Remove number arrows */
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
 
 /*
@@ -224,6 +204,7 @@ input {
     border-width: 2px;
     border-color: var(--color-highlight-1);
     color: var(--color-highlight-1);
+    box-shadow: var(--shadow-light-main);
 }
 
 #taskTitle {
@@ -231,8 +212,30 @@ input {
 }
 
 #tasks {
-    float: right;
+    width: 60%;
+    text-align: center;
+}
+
+.numberInputs {
     width: 36%;
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+}
+.numberInputs button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-light-background);
+}
+.numberInputs button i {
+    filter: var(--shadow-light-main-drop);
+}
+.numberInputs button:hover {
+    color: var(--color-highlight-1);
+}
+.numberInputs button:hover i {
+    filter: var(--shadow-light-hover-drop);
 }
 
 #stopWatchTime {
@@ -244,6 +247,7 @@ input {
     border-radius: 15px;
     justify-content: center;
     align-items: center;
+    box-shadow: var(--shadow-light-main);
 }
 
 /*

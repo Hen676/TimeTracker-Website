@@ -1,0 +1,55 @@
+:root {
+    --color-dark-background: #161616;
+    --color-dark-foreground: #222222;
+    --color-dark-foreground-opa: #2425254d;
+    --color-dark-text-highlight: #ebeae9;
+    --color-dark-text: #d6d5d5; 
+    --color-highlight-3: #ffcc70;  
+}
+
+/* Dark mode */
+.dark h1 {
+    color: var(--color-dark-text-highlight);
+}
+.dark #stopWatchTime{
+    color: var(--color-highlight-3);
+    background-color: var(--color-dark-background);
+}
+.dark p {
+    color: var(--color-dark-text);
+}
+.dark {
+    background-color: var(--color-dark-background);
+}
+.dark input {
+    color: var(--color-highlight-3);
+    background-color: var(--color-dark-background);
+    border-color: var(--color-highlight-3);
+}
+.dark .task {
+    background-color: var(--color-dark-foreground);
+}
+
+.dark .numberInputs button {
+    color: var(--color-dark-background);
+}
+.dark .numberInputs button:hover {
+    color: var(--color-highlight-3);
+}
+
+/* Dark mode - Icon */
+.dark .iconSimple {
+    background-color: var(--color-dark-background);
+    color: var(--color-highlight-3);
+}
+
+.dark .iconSimple:focus,
+.dark .iconSimple:hover {
+    background-color: var(--color-highlight-3);
+    color: var(--color-dark-background);
+}
+
+.dark .tooltipText {
+    background-color: var(--color-highlight-3);
+    color: var(--color-dark-foreground);
+}
