@@ -186,10 +186,11 @@ header {
     box-shadow: var(--shadow-light-main);
     background-color: var(--color-highlight-1);
     background-image: var(--gradient);
-    background-size: 200%;
-    animation: bg-animation 5s infinite alternate;
+    background-size: 150%;
+    animation: bg-animation 10s linear infinite alternate;
     padding-top: 80px;
     padding-bottom: 50px;
+    will-change: background-position;
 }
 
 input {
