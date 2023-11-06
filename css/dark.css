@@ -1,7 +1,8 @@
 :root {
     --color-dark-background: #161616;
     --color-dark-foreground: #222222;
-    --color-dark-foreground-opa: #2425254d;
+    --color-dark-foreground-2: #474747;
+    --color-dark-foreground-opa: #d1d1d1a2;
     --color-dark-text-highlight: #ebeae9;
     --color-dark-text: #d6d5d5; 
     --color-highlight-3: #ffcc70;  
@@ -18,6 +19,10 @@
 .dark p {
     color: var(--color-dark-text);
 }
+.dark hr {
+    border-color: var(--color-background);
+}
+
 .dark {
     background-color: var(--color-dark-background);
 }
@@ -25,6 +30,25 @@
     color: var(--color-highlight-3);
     background-color: var(--color-dark-background);
     border-color: var(--color-highlight-3);
+}
+.dark label,
+.dark h2 {
+    color: var(--color-background);
+}
+
+.dark aside {
+    background-color: var(--color-dark-foreground-opa);
+}
+
+.dark .slider {
+    background-color: var(--color-dark-foreground-2);
+}
+.dark .slider:before {
+    background-color: var(--color-dark-background);
+}
+
+.dark input:checked + .slider {
+    background-color: var(--color-highlight-3);
 }
 .dark .task {
     background-color: var(--color-dark-foreground);
@@ -34,6 +58,13 @@
     color: var(--color-dark-background);
 }
 .dark .numberInputs button:hover {
+    color: var(--color-highlight-3);
+}
+
+.dark .stopwatchEdit button {
+    color: var(--color-dark-background);
+}
+.dark .stopwatchEdit button:hover {
     color: var(--color-highlight-3);
 }
 

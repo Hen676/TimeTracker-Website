@@ -1,7 +1,8 @@
 :root {
     --color-light-background: #ffffff;
     --color-light-foreground: #f1f1f1;
-    --color-light-foreground-opa: #f1f1f14d;
+    --color-light-foreground-2: #a3a3a3;
+    --color-light-foreground-opa: #272727b0;
     --color-light-text-highlight: #322746;
     --color-light-text: rgb(56, 56, 56);    
     --color-gray-opa: #ffffff4d;    
@@ -67,9 +68,27 @@ body {
     margin: auto;
 }
 
+label {
+    color: var(--color-light-background);
+    font-size: larger;
+    filter: var(--shadow-light-main-drop);
+}
+
+h2 {
+    color: var(--color-light-background);
+    font-size: larger;
+    filter: var(--shadow-light-main-drop);
+    text-align: center;
+}
+
 p,
 h1 {
     color: var(--color-light-text);
+}
+
+hr {
+    width: 100%;
+    border: 1px solid var(--color-light-background);
 }
 
 .iconSimple {
@@ -198,6 +217,7 @@ input {
     text-decoration: none;
     outline: none;
     font-size: 1.5em;
+    text-align: center;
 }
 
 .input {
@@ -214,7 +234,6 @@ input {
 
 #tasks {
     width: 60%;
-    text-align: center;
 }
 
 .numberInputs {
@@ -239,6 +258,35 @@ input {
     filter: var(--shadow-light-hover-drop);
 }
 
+.stopwatchEditButtons {
+    margin: auto;
+}
+
+.stopwatchEdit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.stopwatchEdit button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-light-background);
+}
+.stopwatchEdit button i {
+    filter: var(--shadow-light-main-drop);
+}
+.stopwatchEdit button:hover {
+    color: var(--color-highlight-1);
+}
+.stopwatchEdit button:hover i {
+    filter: var(--shadow-light-hover-drop);
+}
+
 #stopWatchTime {
     display: flex;
     text-align: center;
@@ -249,6 +297,7 @@ input {
     justify-content: center;
     align-items: center;
     box-shadow: var(--shadow-light-main);
+    margin-bottom: 5px;
 }
 
 /*
@@ -283,4 +332,106 @@ input {
 
 .tooltip:hover .tooltipText {
     opacity: 1;
+}
+
+/*
+    Settings
+*/
+aside {
+    display: none; /* Change to none when not working on settings menu */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    background-color: var(--color-light-foreground-opa);
+    padding: 15px;
+    backdrop-filter: blur(10px);
+} 
+
+#defaultTasks {
+    width: 20%;
+}
+
+#settingsForm {
+    display: flex;
+    flex-flow: column;
+    gap: 15px;
+    height: 100%;
+}
+
+.inlineSetting .settingLabel {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+
+.inlineSetting {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: auto;
+}
+
+#settingsForm .iconList {
+    margin-top: auto;
+    padding-bottom: 50px;
+}
+
+.visible {
+    display: block;
+}
+
+/*
+    Switch from https://www.w3schools.com/howto/howto_css_switch.asp
+*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-light-foreground-2);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--color-light-background);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--color-highlight-1);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }

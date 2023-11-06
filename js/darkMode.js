@@ -1,11 +1,15 @@
 /**
  * Dark mode file
+ * 
+ * Javascript needed to switch between light and dark modes.
  */
-var body = document.getElementById("body");
-var darkModeIcon = document.getElementById("darkModeIcon");
-var isStorageAvailable = typeof Storage !== "undefined";
 
-darkModeLoad();
+/** @type {HTMLElement} */
+var body = document.getElementById("body");
+/** @type {HTMLElement} */
+var darkModeIcon = document.getElementById("darkModeIcon");
+/** @type {boolean} */
+var isStorageAvailable = typeof Storage !== "undefined";
 
 // Dark mode
 function darkModeLoad() {
@@ -16,12 +20,11 @@ function darkModeLoad() {
             toggleDarkModeIcon();
         }
     }
-    darkModeA.addEventListener("click", (e) => {
+    darkModeA.addEventListener("click", () => {
         body.classList.toggle("dark");
     
         var darkModeBool = body.classList.contains("dark");
-        toggleDarkModeIcon(darkModeBool);
-    
+        toggleDarkModeIcon();
         if (isStorageAvailable)
             localStorage.setItem("dark", darkModeBool);
     });
@@ -31,3 +34,7 @@ function toggleDarkModeIcon() {
     darkModeIcon.classList.toggle("fa-moon");
     darkModeIcon.classList.toggle("fa-sun");
 }
+
+
+// Call load on window load
+window.onload = darkModeLoad();

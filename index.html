@@ -11,7 +11,7 @@
         <script src="https://kit.fontawesome.com/e09760bf9f.js" crossorigin="anonymous"></script>
 		
 		<script defer src='js/darkMode.js'></script>
-        <script defer src='js/timeTask.js'></script>
+        <script defer src='js/util.js'></script>
         <script defer src='js/main.js'></script>
     </head>
     <body id="body">
@@ -24,28 +24,51 @@
                                 <i class="fa-solid fa-moon" id="darkModeIcon"></i>
                             </a>
                         </li>
-                        <!--
                         <li class="tooltip">
-                            <a class="iconSimple" id="settings">
+                            <a class="iconSimple" id="settingsToggle">
                                 <i class="fa-solid fa-gear"></i>
                             </a>
                         </li>
-                        -->
                     </ul>
                 </div>
                 <form id="createTimeTask">
                     <input placeholder="Title" type="text" id="taskTitle" class="input"/>
                     <div class="numberInputs">
-                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <input placeholder="Tasks" type="number" id="tasks" class="input" min="1" value="1"/>
                         <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-plus fa-xl"></i>
+                        </button>
+                        <input type="number" id="tasks" class="input" min="1" value="1"/>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fa-solid fa-minus fa-xl"></i>
                         </button>
                     </div>
                     <p id="stopWatchTime">00:00:00</p>
-
+                    <div class="stopwatchEdit">
+                        <div class="stopwatchEditButtons">
+                            <button type="button" onclick="changeTimeInMilliseconds(3_600_000)">
+                                <i class="fa-solid fa-plus fa-xl"></i>
+                            </button>
+                            <button type="button" onclick="changeTimeInMilliseconds(-3_600_000)">
+                                <i class="fa-solid fa-minus fa-xl"></i>
+                            </button>
+                        </div>
+                        <div class="stopwatchEditButtons">
+                            <button type="button" onclick="changeTimeInMilliseconds(60_000)">
+                                <i class="fa-solid fa-plus fa-xl"></i>
+                            </button>
+                            <button type="button" onclick="changeTimeInMilliseconds(-60_000)">
+                                <i class="fa-solid fa-minus fa-xl"></i>
+                            </button>
+                        </div>
+                        <div class="stopwatchEditButtons">
+                            <button type="button" onclick="changeTimeInMilliseconds(1000)">
+                                <i class="fa-solid fa-plus fa-xl"></i>
+                            </button>
+                            <button type="button" onclick="changeTimeInMilliseconds(-1000)">
+                                <i class="fa-solid fa-minus fa-xl"></i>
+                            </button>
+                        </div>
+                    </div>
                     <ul class="iconList">
                         <li class="tooltip">
                             <a class="iconSimple" id="start">
@@ -107,6 +130,61 @@
                     </div>
                 -->
             </section>
+            <aside id="settings">
+                <form id="settingsForm">
+                    <h2>Settings</h2>
+                    <label>Default Title:</label>
+                    <input placeholder="Default title" type="text" id="defaultTaskTitle" class="input"/>
+                    <div class="numberInputs inlineSetting">
+                        <label class="settingLabel">Default Tasks:</label>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fa-solid fa-plus fa-xl"></i>
+                        </button>
+                        <input type="number" id="defaultTasks" class="input" min="1" value="1"/>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fa-solid fa-minus fa-xl"></i>
+                        </button>
+                    </div>
+
+                    <hr>
+
+                    <div class="inlineSetting">
+                        <label class="settingLabel">Debug:</label>
+                        <label class="switch">
+                            <input id="debug" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="inlineSetting">
+                        <label class="settingLabel">Debug Storage:</label>
+                        <label class="switch">
+                            <input id="debugStorage" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <ul class="iconList">
+                        <li class="tooltip">
+                            <a class="iconSimple" id="resetSettings">
+                                <i class="fa-solid fa-arrow-rotate-left"></i>
+                            </a>
+                            <span class="tooltipText">Reset</span>
+                        </li>
+                        <li class="tooltip">
+                            <a class="iconSimple" id="saveSettings">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                            </a>
+                            <span class="tooltipText">Save</span>
+                        </li>
+                        <li class="tooltip">
+                            <a class="iconSimple" id="closeSettings">
+                                <i class="fa-solid fa-xmark fa-xl"></i>
+                            </a>
+                            <span class="tooltipText">Close</span>
+                        </li>
+                    </ul>
+                </form>
+            </aside>
         </div>
     </body>
 </html>
