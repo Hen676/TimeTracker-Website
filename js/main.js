@@ -29,10 +29,16 @@ let stopWatchTimeP = document.getElementById("stopWatchTime");
 let totalTimeP = document.getElementById("totalTime");
 /** @type  {HTMLParagraphElement} */
 let totalTasksP = document.getElementById("totalTasks");
+/** @type  {HTMLParagraphElement} */
+let avgTimePerTaskP = document.getElementById("avgTimePerTask");
 /** @type  {HTMLElement} */
 let taskListSection = document.getElementById("taskList");
 /** @type  {HTMLElement} */
 let settingsAside = document.getElementById("settings");
+
+/** @type  {HTMLCollection<HTMLButtonElement>} */
+let stopwatchControls = document.getElementsByClassName("controls");
+
 
 /*
     Stopwatch
@@ -75,6 +81,8 @@ function updateTotalsAndShowTasks() {
     // Total tasks
     totalTasksP.innerText = tasks;
     totalTimeP.innerText = formatTime(time);
+    avgTimePerTaskP.innerText = formatTime(time/tasks)
+
     showTasks();
 }
 
@@ -107,11 +115,13 @@ function showTasks() {
 
     taskListSection.innerHTML = getTodaysTasks().map((element, index) => `
     <div class="task">
-        <div class="top">
-            <h1>${element.title}</h1>
-            <p>${new Date(element.date).toDateString()}</p>
-        </div>
-        <ul class="iconList">
+        <ul class="iconList delete">
+            <li class="tooltip">
+                <a class="iconSimple" onclick="copyTimePerTaskToClipboard(${index})">
+                    <i class="fa-solid fa-copy fa-xl"></i>
+                </a>
+                <span class="tooltipText">Copy Time Per Task</span>
+            </li>
             <li class="tooltip">
                 <a class="iconSimple" onclick="deleteTask(${index})">
                     <i class="fa-solid fa-xmark fa-xl"></i>
@@ -119,13 +129,32 @@ function showTasks() {
                 <span class="tooltipText">Delete</span>
             </li>
         </ul>
-        <div class="bottom">
+        <div class="top">
+            <h1>${element.title}</h1>
+        </div>
+
+        <div class="text">
             <p>Time: ${formatTime(element.time)}</p>
             <p>Tasks: ${element.tasks}</p>
             <p>Time per task: ${formatTime(element.time / element.tasks)}</p>
         </div>
+
+        <div class="date">
+            <p>${formatTime(element.date)}</p>
+        </div>
     </div>
     `).join('');
+}
+
+function copyTimePerTaskToClipboard(index) {
+    if (settings.debug) console.log("Copying time per task: " + index);
+    var text = formatTimeForCopying(taskStorage[index].time / taskStorage[index].tasks);
+    navigator.clipboard.writeText(text).then(()=>{
+        console.log('copied')
+    },
+    ()=>{
+        console.log('failed to copy')
+    })
 }
 
 function getTodaysTasks() {
@@ -144,6 +173,7 @@ function load() {
     document.getElementById("start").addEventListener("click", () => {
         if(!stopwatchRunning) {
             stopwatchRunning = true;
+            toggleStopwatchPlusMinusControls();
             stopwatchStartTime = Date.now() - stopwatchElapsedTime;
             workerId = setInterval(updateTime, 75);
         }
@@ -151,18 +181,30 @@ function load() {
     document.getElementById("pause").addEventListener("click", () => {
         if(stopwatchRunning) {
             stopwatchRunning = false;
+            toggleStopwatchPlusMinusControls();
             stopwatchElapsedTime = Date.now() - stopwatchStartTime;
             clearInterval(workerId);
         }
     });
-    document.getElementById("restart").addEventListener("click", () => {
-        if(stopwatchRunning)
+    document.getElementById("reset").addEventListener("click", resetForm);
+
+    function resetForm() {
+        if(stopwatchRunning) {
             stopwatchRunning = false;
+            toggleStopwatchPlusMinusControls();
+        }
         stopwatchStartTime = 0;
         stopwatchElapsedTime = 0;
+        tasks.value = settings.defaultTasks;
         updateTime();
         clearInterval(workerId);
-    });
+    }
+
+    function toggleStopwatchPlusMinusControls() {
+        for(let button of stopwatchControls) {
+            button.classList.toggle("disabled");
+        };
+    }
 
     // Register task submit button
     document.getElementById("submit").addEventListener("click", () => {
@@ -194,9 +236,8 @@ function load() {
         localStorage.Tasks = JSON.stringify(taskStorage);
         // Update totals
         updateTotalsAndShowTasks();
-        stopwatchTimeTotal = 0;
-        taskFormForm.reset();
-        tasks.value = settings.defaultTasks;
+        // Reset form
+        resetForm();
     });
 
     // Register settings buttons
@@ -223,6 +264,7 @@ function load() {
 
     let tasks = document.getElementById("tasks");
     tasks.value = settings.defaultTasks;
+    taskTitle.placeholder = settings.defaultTitle;
 
     // Update totals and show tasks
     updateTotalsAndShowTasks();

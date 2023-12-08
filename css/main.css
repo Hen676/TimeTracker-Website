@@ -141,7 +141,7 @@ article {
     padding-right: 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 article p {
     display: inline;
@@ -159,18 +159,17 @@ section {
 
 .task {
     flex: 1 1 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    position: relative;
+    padding: 5px 10px;
     margin: 5px;
     background-color: var(--color-light-foreground);
     box-shadow: var(--shadow-light-main);
 }
 
-.task .iconList {
+.delete {
     float: right;
     padding-bottom: 20px;
+    margin-top: 10px;
 }
 
 .top {
@@ -180,7 +179,17 @@ section {
     align-items: flex-start;
 }
 
-.bottom {
+.date {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.date p {
+    margin: 0;
+}
+
+.text {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -189,7 +198,7 @@ section {
 
 .top p,
 .top h1,
-.bottom p {
+.text p {
     display: inline;
     margin: 5px;
 }
@@ -258,6 +267,16 @@ input {
     filter: var(--shadow-light-hover-drop);
 }
 
+.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.disabled i {
+    color: var(--color-gray-opa);
+    filter: none;
+}
+
 .stopwatchEditButtons {
     margin: auto;
 }
@@ -298,6 +317,22 @@ input {
     align-items: center;
     box-shadow: var(--shadow-light-main);
     margin-bottom: 5px;
+}
+
+.stopWatchTime {
+    font-size: 1.5em;
+    color: var(--color-highlight-1);
+    background-color: var(--color-light-background);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: var(--shadow-light-main);
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.stopWatchTime input {
+    width: 30%;
 }
 
 /*

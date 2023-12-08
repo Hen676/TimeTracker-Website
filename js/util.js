@@ -43,6 +43,29 @@ function formatTime(time) {
     return `${hours}:${minutes}:${seconds}`;
 }
 
+/**
+ * Convert milliseconds to hours, minutes and seconds.
+ * @param {number} time - Time in milliseconds.
+ * @returns {string} Time formatted into a string
+ */
+function formatTimeForCopying(time) {
+    if(time < 1000)
+        return "0";
+
+    let seconds = Math.floor((time / 1000) % 60);
+    let minutes = Math.floor((time / 1000 / 60) % 60);
+    let hours = Math.floor((time / 1000 / 60 / 60) % 24);
+
+    var text = "";
+    if (hours != 0)
+        text += `${hours}h `
+    if (minutes != 0)
+        text += `${minutes}m `
+    if (seconds != 0)
+        text += `${seconds}s `
+    return text.slice(0, -1);
+}
+
 /*
     Local storage functions
 */

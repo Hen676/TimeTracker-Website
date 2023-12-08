@@ -45,26 +45,26 @@
                     <p id="stopWatchTime">00:00:00</p>
                     <div class="stopwatchEdit">
                         <div class="stopwatchEditButtons">
-                            <button type="button" onclick="changeTimeInMilliseconds(3_600_000)">
+                            <button type="button" onclick="changeTimeInMilliseconds(3_600_000)" class="controls">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                             </button>
-                            <button type="button" onclick="changeTimeInMilliseconds(-3_600_000)">
+                            <button type="button" onclick="changeTimeInMilliseconds(-3_600_000)" class="controls">
                                 <i class="fa-solid fa-minus fa-xl"></i>
                             </button>
                         </div>
                         <div class="stopwatchEditButtons">
-                            <button type="button" onclick="changeTimeInMilliseconds(60_000)">
+                            <button type="button" onclick="changeTimeInMilliseconds(60_000)" class="controls">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                             </button>
-                            <button type="button" onclick="changeTimeInMilliseconds(-60_000)">
+                            <button type="button" onclick="changeTimeInMilliseconds(-60_000)" class="controls">
                                 <i class="fa-solid fa-minus fa-xl"></i>
                             </button>
                         </div>
                         <div class="stopwatchEditButtons">
-                            <button type="button" onclick="changeTimeInMilliseconds(1000)">
+                            <button type="button" onclick="changeTimeInMilliseconds(1000)" class="controls">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                             </button>
-                            <button type="button" onclick="changeTimeInMilliseconds(-1000)">
+                            <button type="button" onclick="changeTimeInMilliseconds(-1000)" class="controls">
                                 <i class="fa-solid fa-minus fa-xl"></i>
                             </button>
                         </div>
@@ -83,10 +83,10 @@
                             <span class="tooltipText">Pause</span>
                         </li>
                         <li class="tooltip">
-                            <a class="iconSimple" id="restart">
+                            <a class="iconSimple" id="reset">
                                 <i class="fa-solid fa-arrow-rotate-left"></i>
                             </a>
-                            <span class="tooltipText">Restart</span>
+                            <span class="tooltipText">Reset</span>
                         </li>
                         <li class="tooltip">
                             <a class="iconSimple" id="submit">
@@ -99,33 +99,39 @@
             </header>
             <article>
                 <div>
-                    <p>Total time today:</p>
+                    <p>Total Time:</p>
                     <p id="totalTime">00:00:00</p>
                 </div>
                 <div>
-                    <p>Total tasks today:</p>
+                    <p>Average Time Per Task:</p>
+                    <p id="avgTimePerTask">00:00:00</p>
+                </div>
+                <div>
+                    <p>Total Tasks:</p>
                     <p id="totalTasks">0</p>
                 </div>
             </article>
             <section id="taskList">
                 <!--
-                    <div class="task" data-index="${index}">
-                        <div class="top">
-                            <h1>${i.title}</h1>
-                            <p>${i.date}</p>
-                        </div>
-                        <ul class="iconList">
+                    <div class="task">
+                        <ul class="iconList delete">
                             <li class="tooltip">
-                                <a class="iconSimple">
+                                <a class="iconSimple" onclick="deleteTask(${index})">
                                     <i class="fa-solid fa-xmark fa-xl"></i>
                                 </a>
                                 <span class="tooltipText">Delete</span>
                             </li>
                         </ul>
-                        <div class="bottom">
-                            <p>Time: ${formatTime(i.time)}</p>
-                            <p>Tasks: ${i.tasks}</p>
-                            <p>Time per task: ${formatTime(i.time / i.tasks)}</p>
+                        <div class="top">
+                            <h1>${element.title}</h1>
+                        </div>
+                        <div class="text">
+                            <p>Time: ${formatTime(element.time)}</p>
+                            <p>Tasks: ${element.tasks}</p>
+                            <p>Time per task: ${formatTime(element.time / element.tasks)}</p>
+                        </div>
+                        <div class="date">
+                            <p>${formatTime(element.date)}</p>
                         </div>
                     </div>
                 -->
