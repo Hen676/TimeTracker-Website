@@ -1,472 +1,486 @@
 :root {
-    --color-light-background: #ffffff;
-    --color-light-foreground: #f1f1f1;
-    --color-light-foreground-2: #a3a3a3;
-    --color-light-foreground-opa: #272727b0;
-    --color-light-text-highlight: #322746;
-    --color-light-text: rgb(56, 56, 56);    
-    --color-gray-opa: #ffffff4d;    
-    --color-highlight-1: #4158d0;
-    --color-highlight-2: #c850c0;
-    --color-highlight-3: #ffcc70;   
-    --gradient: linear-gradient(
-        43deg,
-        var(--color-highlight-1) 0%,
-        var(--color-highlight-2) 46%,
-        var(--color-highlight-3) 100%
-    );  
-    --shadow-light-main: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --shadow-light-main-drop: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.8));
-    --shadow-light-hover: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 8px 30px 0 rgba(0, 0, 0, 0.19);
-    --shadow-light-hover-drop: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
+	--color-light-background: #ffffff;
+	--color-light-foreground: #f1f1f1;
+	--color-light-foreground-2: #a3a3a3;
+	--color-light-foreground-opa: #272727b0;
+	--color-light-text-highlight: #322746;
+	--color-light-text: rgb(56, 56, 56);
+	--color-gray-opa: #ffffff4d;
+	--color-highlight-1: #4158d0;
+	--color-highlight-2: #c850c0;
+	--color-highlight-3: #ffcc70;
+	--gradient: linear-gradient(
+		43deg,
+		var(--color-highlight-1) 0%,
+		var(--color-highlight-2) 46%,
+		var(--color-highlight-3) 100%
+	);
+	--shadow-light-main: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	--shadow-light-main-drop: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.8));
+	--shadow-light-hover: 0 6px 12px 0 rgba(0, 0, 0, 0.2),
+		0 8px 30px 0 rgba(0, 0, 0, 0.19);
+	--shadow-light-hover-drop: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
 }
 
 /* Animation */
 @keyframes bg-animation {
-    0% {
-        background-position: left;
-    }
-    100% {
-        background-position: right;
-    }
+	0% {
+		background-position: left;
+	}
+	100% {
+		background-position: right;
+	}
 }
 
 /* WEB KIT */
 
 /* Scroll bar */
 ::-webkit-scrollbar {
-    width: 17px;
-    background-color: black;
+	width: 17px;
+	background-color: black;
 }
 ::-webkit-scrollbar-track {
-    margin: 0px;
+	margin: 0px;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--color-gray-opa);
+	background: var(--color-gray-opa);
 }
 
 /* Remove number arrows */
 input[type="number"] {
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
 }
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
 }
 
 /*
     Global css
 */
 body {
-    transition: background-color 0.3s linear;
-    background-color: var(--color-light-background);
-    font-family: verdana;
-    padding-bottom: 100px;
-    max-width: 1400px;
-    margin: auto;
+	transition: background-color 0.3s linear;
+	background-color: var(--color-light-background);
+	font-family: verdana;
+	padding-bottom: 100px;
+	max-width: 1400px;
+	margin: auto;
+}
+
+.main {
+	margin: auto;
 }
 
 label {
-    color: var(--color-light-background);
-    font-size: larger;
-    filter: var(--shadow-light-main-drop);
+	color: var(--color-light-text);
+	font-size: larger;
 }
 
 h2 {
-    color: var(--color-light-background);
-    font-size: larger;
-    filter: var(--shadow-light-main-drop);
-    text-align: center;
+	color: var(--color-light-text);
+	font-size: larger;
+	text-align: center;
 }
 
 p,
 h1 {
-    color: var(--color-light-text);
+	color: var(--color-light-text);
 }
 
 hr {
-    width: 100%;
-    border: 1px solid var(--color-light-background);
+	width: 100%;
+	border: 1px solid var(--color-light-background);
 }
 
 .iconSimple {
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 100%;
-    background-color: var(--color-light-foreground);
-    color: var(--color-highlight-1);
-    transition: background-color 0.5s linear;
-    box-shadow: var(--shadow-light-main);
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 45px;
+	height: 45px;
+	border-radius: 100%;
+	background-color: var(--color-light-foreground);
+	color: var(--color-highlight-1);
+	transition: background-color 0.5s linear;
+	box-shadow: var(--shadow-light-main);
 }
 
 .iconSimple:hover,
 .iconSimple:focus {
-    background-color: var(--color-highlight-1);
-    box-shadow: var(--shadow-light-hover);
-    color: var(--color-light-foreground);
-    cursor: pointer;
-    opacity: 1;
+	background-color: var(--color-highlight-1);
+	box-shadow: var(--shadow-light-hover);
+	color: var(--color-light-foreground);
+	cursor: pointer;
+	opacity: 1;
 }
 
 .iconList {
-    margin: 0;
-    margin-top: 20px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+	margin: 0;
+	margin-top: 20px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
 }
 
 /*
     Settings + Theme buttons
 */
 .settings {
-    position: absolute; 
-    top: 0; 
-    right: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
-
 
 /*
     Task totals
 */
 article {
-    margin-top: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+	margin-top: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 article p {
-    display: inline;
+	display: inline;
 }
 
 /*
     Task list
 */
-section {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 10px;
+#taskList {
+	list-style-type: none;
+	padding: 0;
 }
 
 .task {
-    flex: 1 1 0;
-    position: relative;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: var(--color-light-foreground);
-    box-shadow: var(--shadow-light-main);
+	flex: 1 1 0;
+	position: relative;
+	padding: 5px 10px;
+	margin: 10px 0px;
+	background-color: var(--color-light-foreground);
+	box-shadow: var(--shadow-light-main);
 }
 
 .delete {
-    float: right;
-    padding-bottom: 20px;
-    margin-top: 10px;
+	float: right;
+	padding-bottom: 20px;
+	margin-top: 10px;
 }
 
 .top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-items: flex-start;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
 .date {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
 }
 
 .date p {
-    margin: 0;
+	margin: 0;
 }
 
 .text {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: column;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-direction: column;
 }
 
 .top p,
 .top h1,
 .text p {
-    display: inline;
-    margin: 5px;
+	display: inline;
+	margin: 5px;
 }
-
 
 /*
 	Stopwatch + Form
 */
 header {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    box-shadow: var(--shadow-light-main);
-    background-color: var(--color-highlight-1);
-    background-image: var(--gradient);
-    background-size: 150%;
-    animation: bg-animation 10s linear infinite alternate;
-    padding-top: 80px;
-    padding-bottom: 50px;
-    will-change: background-position;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	box-shadow: var(--shadow-light-main);
+	background-color: var(--color-highlight-1);
+	background-image: var(--gradient);
+	background-size: 150%;
+	animation: bg-animation 10s linear infinite alternate;
+	padding-top: 80px;
+	padding-bottom: 50px;
+	will-change: background-position;
 }
 
 input {
-    border: none;
-    text-decoration: none;
-    outline: none;
-    font-size: 1.5em;
-    text-align: center;
+	border: none;
+	text-decoration: none;
+	outline: none;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.inputNoShadow,
+.input {
+	border-bottom: solid;
+	border-width: 2px;
+	border-color: var(--color-highlight-1);
+	color: var(--color-highlight-1);
 }
 
 .input {
-    border-bottom: solid;
-    border-width: 2px;
-    border-color: var(--color-highlight-1);
-    color: var(--color-highlight-1);
-    box-shadow: var(--shadow-light-main);
+	box-shadow: var(--shadow-light-main);
+}
+
+.inputNoShadow {
+	box-shadow: none;
 }
 
 #taskTitle {
-    width: 60%;
+	width: 60%;
 }
 
 #tasks {
-    width: 60%;
+	width: 60%;
 }
 
 .numberInputs {
-    width: 36%;
-    float: right;
-    display: flex;
-    justify-content: flex-end;
+	width: 36%;
+	float: right;
+	display: flex;
+	justify-content: flex-end;
 }
 .numberInputs button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-light-background);
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--color-light-background);
 }
 .numberInputs button i {
-    filter: var(--shadow-light-main-drop);
+	filter: var(--shadow-light-main-drop);
 }
 .numberInputs button:hover {
-    color: var(--color-highlight-1);
+	color: var(--color-highlight-1);
 }
 .numberInputs button:hover i {
-    filter: var(--shadow-light-hover-drop);
+	filter: var(--shadow-light-hover-drop);
 }
 
 .disabled {
-    cursor: not-allowed;
-    pointer-events: none;
+	cursor: not-allowed;
+	pointer-events: none;
 }
 
 .disabled i {
-    color: var(--color-gray-opa);
-    filter: none;
+	color: var(--color-gray-opa);
+	filter: none;
 }
 
 .stopwatchEditButtons {
-    margin: auto;
+	margin: auto;
 }
 
 .stopwatchEdit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    margin: auto;
-    padding-bottom: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	margin: auto;
+	padding-bottom: 40px;
 }
 
 .stopwatchEdit button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-light-background);
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--color-light-background);
 }
 .stopwatchEdit button i {
-    filter: var(--shadow-light-main-drop);
+	filter: var(--shadow-light-main-drop);
 }
 .stopwatchEdit button:hover {
-    color: var(--color-highlight-1);
+	color: var(--color-highlight-1);
 }
 .stopwatchEdit button:hover i {
-    filter: var(--shadow-light-hover-drop);
+	filter: var(--shadow-light-hover-drop);
 }
 
 #stopWatchTime {
-    display: flex;
-    text-align: center;
-    font-size: 4em;
-    color: var(--color-highlight-1);
-    background-color: var(--color-light-background);
-    border-radius: 15px;
-    justify-content: center;
-    align-items: center;
-    box-shadow: var(--shadow-light-main);
-    margin-bottom: 5px;
+	display: flex;
+	text-align: center;
+	font-size: 4em;
+	color: var(--color-highlight-1);
+	background-color: var(--color-light-background);
+	border-radius: 15px;
+	justify-content: center;
+	align-items: center;
+	box-shadow: var(--shadow-light-main);
+	margin-bottom: 5px;
 }
 
 .stopWatchTime {
-    font-size: 1.5em;
-    color: var(--color-highlight-1);
-    background-color: var(--color-light-background);
-    border-radius: 15px;
-    padding: 10px;
-    box-shadow: var(--shadow-light-main);
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: center;
+	font-size: 1.5em;
+	color: var(--color-highlight-1);
+	background-color: var(--color-light-background);
+	border-radius: 15px;
+	padding: 10px;
+	box-shadow: var(--shadow-light-main);
+	margin-bottom: 5px;
+	display: flex;
+	justify-content: center;
 }
 
 .stopWatchTime input {
-    width: 30%;
+	width: 30%;
 }
 
 /*
 	Tooltips
 */
 .tooltip {
-    position: relative;
-    list-style: none;
-    align-items: center;
-    display: flex;
-    margin: 0 0.7em;
+	position: relative;
+	list-style: none;
+	align-items: center;
+	display: flex;
+	margin: 0 0.7em;
 }
 
 .tooltipText {
-    opacity: 0;
-    width: 100px;
-    background-color: var(--color-highlight-1);
-    color: var(--color-light-foreground);
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    transition: opacity 0.5s ease;
-    box-shadow: var(--shadow-light-hover);
+	opacity: 0;
+	width: 100px;
+	background-color: var(--color-highlight-1);
+	color: var(--color-light-foreground);
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	transition: opacity 0.5s ease;
+	box-shadow: var(--shadow-light-hover);
 
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 0;
-    bottom: 108%;
-    left: 50%;
-    margin-left: -50px;
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 0;
+	bottom: 108%;
+	left: 50%;
+	margin-left: -50px;
 }
 
 .tooltip:hover .tooltipText {
-    opacity: 1;
+	opacity: 1;
 }
 
 /*
     Settings
 */
 aside {
-    display: none; /* Change to none when not working on settings menu */
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: auto;
-    height: 100%;
-    background-color: var(--color-light-foreground-opa);
-    padding: 15px;
-    backdrop-filter: blur(10px);
-} 
+	display: none; /* Change to none when not working on settings menu */
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	backdrop-filter: blur(10px);
+}
 
-#defaultTasks {
-    width: 20%;
+.settingLabel {
+	justify-self: end;
 }
 
 #settingsForm {
-    display: flex;
-    flex-flow: column;
-    gap: 15px;
-    height: 100%;
-}
-
-.inlineSetting .settingLabel {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: auto;
-}
-
-.inlineSetting {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: auto;
+	display: grid;
+	flex-flow: column;
+	gap: 15px;
+	width: 600px;
+	padding: 10px;
+	margin: auto;
+	background-color: var(--color-light-foreground);
+	column-gap: 5px;
+	row-gap: 5px;
+	grid-template-columns: auto auto;
 }
 
 #settingsForm .iconList {
-    margin-top: auto;
-    padding-bottom: 50px;
+	margin-top: auto;
+	padding-bottom: 50px;
+}
+
+.inlineSetting .settingLabel {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: auto;
+}
+
+.inlineSetting {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: auto;
 }
 
 .visible {
-    display: block;
+	display: block;
 }
 
 /*
     Switch from https://www.w3schools.com/howto/howto_css_switch.asp
 */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
 }
 
 /* Hide default HTML checkbox */
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+	opacity: 0;
+	width: 0;
+	height: 0;
 }
 
 /* The slider */
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--color-light-foreground-2);
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 34px;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--color-light-foreground-2);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+	border-radius: 34px;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: var(--color-light-background);
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 50%;
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--color-light-background);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+	border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: var(--color-highlight-1);
+	background-color: var(--color-highlight-1);
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
 }

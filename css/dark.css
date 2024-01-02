@@ -2,7 +2,7 @@
     --color-dark-background: #161616;
     --color-dark-foreground: #222222;
     --color-dark-foreground-2: #474747;
-    --color-dark-foreground-opa: #d1d1d1a2;
+    --color-dark-background-opa: #161616b0;
     --color-dark-text-highlight: #ebeae9;
     --color-dark-text: #d6d5d5; 
     --color-highlight-3: #ffcc70;  
@@ -33,11 +33,15 @@
 }
 .dark label,
 .dark h2 {
-    color: var(--color-background);
+    color: var(--color-dark-text);
+}
+
+.dark #settingsForm {
+    background-color: var(--color-dark-foreground);
 }
 
 .dark aside {
-    background-color: var(--color-dark-foreground-opa);
+    background-color: var(--color-dark-background-opa);
 }
 
 .dark .slider {
