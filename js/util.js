@@ -37,7 +37,7 @@ class Settings {
 }
 
 /**
- * Convert milliseconds to hours, minutes and seconds.
+ * Convert milliseconds to hours, minutes and seconds. [01:01:01]
  * @param {number} time - Time in milliseconds.
  * @returns {string} Time formatted into a string
  */
@@ -54,7 +54,7 @@ function formatTime(time) {
 }
 
 /**
- * Convert milliseconds to hours, minutes and seconds.
+ * Convert milliseconds to hours, minutes and seconds. [1h 1m 1s]
  * @param {number} time - Time in milliseconds.
  * @returns {string} Time formatted into a string
  */
