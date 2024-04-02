@@ -1,3 +1,9 @@
+/** @type {number} */
+let version = 1.1;
+/** @type {Settings} */
+let settings = getSettings();
+/** @type  {TimeTask[]} */
+let taskStorage = getTasks();
 /** @type {boolean} */
 let stopwatchRunning = false;
 /** @type {Number} */
@@ -249,6 +255,14 @@ function submit() {
  *  Also initializes all events.
  */
 function load() {
+	if (localStorage.version == undefined) {
+		taskStorage.forEach((item) => {
+			item.id = getID();
+		});
+		localStorage.version = JSON.stringify(version);
+		saveTasks();
+	}
+
 	// Register settings buttons
 	addEventListenerToggleSettings(document.getElementById("settingsToggle"));
 	addEventListenerToggleSettings(document.getElementById("closeSettings"));

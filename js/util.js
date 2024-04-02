@@ -1,10 +1,3 @@
-/** @type {number} */
-let version = 1.1;
-/** @type {Settings} */
-let settings = getSettings();
-/** @type  {TimeTask[]} */
-let taskStorage = getTasks();
-
 class TimeTask {
 	/** Get TimeTasks from local storage.
 	 * @param {string} title - Title of task.
@@ -122,12 +115,4 @@ function getID() {
 	while (taskStorage.find((timeTask) => timeTask.id == uuid) != undefined)
 		uuid = self.crypto.randomUUID();
 	return uuid;
-}
-
-if (localStorage.version == undefined) {
-	taskStorage.forEach((item) => {
-		item.id = getID();
-	});
-	localStorage.version = JSON.stringify(version);
-	saveTasks();
 }
